@@ -1,10 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "Projects", type: :system do
-  before do
-    driven_by(:rack_test)
-  end
-
   # ユーザーは新しいプロジェクトを作成する
   scenario "user creates a new project" do
     user = FactoryBot.create(:user)
@@ -26,6 +22,5 @@ RSpec.describe "Projects", type: :system do
         expect(page).to have_content "Owner: #{user.name}"
       }.to change(user.projects, :count).by(1)
   end
-
-  pending "add some scenarios (or delete) #{__FILE__}"
+  
 end
